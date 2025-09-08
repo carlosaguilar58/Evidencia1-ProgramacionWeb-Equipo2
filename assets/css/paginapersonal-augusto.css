@@ -1,0 +1,90 @@
+/*Ajustando la primera imagen*/
+.imagen_sueter {
+    width: auto;
+    height: 250px;
+    border-radius: 15px;
+}
+
+/*Ajustando la segunda imagen*/
+.imagen_oxxo {
+    width: auto;
+    height: 250px;
+    border-radius: 15px;
+}
+
+/*Ajustando presentacion*/
+#presentacion {
+    background-color: antiquewhite;
+    border-radius: 15px;
+    margin: 3px;
+    padding: 10px;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/*agregando bordes a la barra de navegacion*/
+nav {
+    border-radius: 15px;
+}
+
+/*poniendo todos los parrfos en textos mas cortos para que
+no abarque tanto espacio en la pantalla por que si puse
+bastantillo texto :) */
+p {
+    text-transform: lowercase;
+}
+
+/*ajustando presentacion personal*/
+#presen-expe-1 {
+    background-color: rgb(236, 203, 158);
+    border-radius: 15px;
+    margin-right: 50px;
+    margin-left: 80px;
+    padding: 5px;
+}
+
+/*ajustando mi experiencia en la carrera*/
+#presen-expe-2 {
+    background-color: rgb(236, 203, 158);
+    border-radius: 15px;
+    margin-left: 20px;
+    margin-right: 50px;
+    padding: 5px;
+}
+
+/*ajustando deseos a futuro*/
+#deseos {
+    background-color: rgb(117, 243, 201);
+    border-radius: 15px;
+    margin-left: 80px;
+    margin-right: 50px;
+    padding: 5px;
+}
+
+/*ajustando la verdadera carrera*/
+#verdadera_carrera {
+    background-color: rgb(117, 243, 201);
+    border-radius: 15px;
+    margin-left: 20px;
+    margin-right: 50px;
+    padding: 5px;
+}
+
+/*ajustando el encabezado de la carta*/
+#encabezado_carta {
+    background-color: khaki;
+    border-radius: 15px, 0, 0, 0;
+}
+
+/*ajustando el cuerpo de la carta*/
+#cuerpo_carta {
+    background-color: aliceblue;
+    border-radius: opx, 15px, o, 0;
+}
+
+/*ajustando la recomendacion musical*/
+#recomendacion {
+    background-color: rgb(145, 241, 241);
+    border-radius: 20px;
+    margin: 10px;
+}

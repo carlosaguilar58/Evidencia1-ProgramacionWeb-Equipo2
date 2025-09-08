@@ -1,0 +1,79 @@
+/*HOLA MUNDO*/
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: darkgoldenrod;
+}
+
+#contenedor {
+    background-color: #FFF;
+    padding: 10px; /*es un margen dentro del contenido*/
+    border-radius: 10px;/*son bordes redondeados dentro del contenido*/
+    text-align: right; /*todo el contenido esta centrado*/
+}
+
+#presentacion {
+    background-color: cadetblue;
+    color: #FFF; /*cambiar el color del texto*/
+    padding: 20px; /*hacer mas grande el contenido*/
+    border-radius: 25px; /*redondear el contenido en las esquinas*/
+    font-size: 10px;
+}
+
+
+#parrafo {
+    background-color: darkcyan;
+    color: #FFF;
+    padding: 10px;
+    border-radius: 25px;
+    font-size: 15px; /*cambiar el tamaño de texto*/
+    margin-top: 10px;
+}
+
+#conocimientos {
+    background-color: rgb(187, 159, 1);
+    color: #FFF;
+    padding: 10px;
+    border-radius: 25px;
+    font-size: 15px; /*cambiar el tamaño de texto*/
+    margin-top: 10px;
+    text-align: center;
+}
+
+#tabla {
+    background-color: #FFF;
+    color:black;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+thead{
+    background-color: thistle;
+    text-transform: uppercase;
+}
+
+#conclusion {
+    background-color: yellowgreen;
+    padding: 10px;
+    border-radius: 25px;
+    margin-top: 10px;
+}
+
+#imagen > img {
+    width: 180px;
+    height: auto;
+    border-radius: 100%;
+    float: left;
+    margin-top: -50px;
+}
+
+#imagen:hover {
+    height: auto;
+    width: -800px;
+    cursor: pointer;
+}
+
+

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>Clima en San Nicolas de los Garza</h1>
+            <h2>Semana 02 al 07 de septiembre del 2024</h2>
+            <p>Responsable de Actualizacion: Augusto Galindo</p>
+        </header>
+        
+        <!--las columnas de los dias de la semana-->
+        <section class="row text-center mt-5">
+            <!--El mt hace un borde en todo la linea, para separar los subtitulos con la tabla-->
+            <!--y el p en cada columan de los dias, hace un borde dentro de cada cuadro, se puso para verse mas centrado-->
+            <div class="col-2 border p-3">
+                <h5>Luner 02</h5>
+                <i class="fa-solid fa-cloud"></i>
+                <p>Nublado</p>
+                <p>31° | 23°</p>
+                <hr>
+                <i class="fa-solid fa-wind"></i>
+                <p>13 - 29 km/h</p>
+            </div>
+
+            <div class="col-2 border p-3">
+                <h5>Martes 03</h5>
+                <i class="fa-solid fa-bolt"></i>
+                <p>Tormenta</p>
+                <p>29° | 23°</p>
+                <hr>
+                <i class="fa-solid fa-wind"></i>
+                <p>10 - 15 km/h</p>
+            </div>
+
+            <div class="col-2 border p-3">
+                <h5>Miercoles 04</h5>
+                <i class="fa-solid fa-sun"></i>
+                <p>Soleado</p>
+                <p>28° | 38°</p>
+                <hr>
+                <i class="fa-solid fa-wind"></i>
+                <p>7 - 23 km/h</p>
+            </div>
+
+            <div class="col-2 border p-3">
+                <h5>Jueves 05</h5>
+                <i class="fa-solid fa-sun"></i>
+                <p>Soleado</p>
+                <p>39° | 28°</p>
+                <hr>
+                <i class="fa-solid fa-wind"></i>
+                <p>13 - 29 km/h</p>
+            </div>
+
+            <div class="col-2 border p-3">
+                <h5>viernes 06</h5>
+                <i class="fa-solid fa-wind"></i>
+                <p>Viento</p>
+                <p>10° | 24°</p>
+                <hr>
+                <i class="fa-solid fa-wind"></i>
+                <p>15 - 29 km/h</p>
+            </div>
+
+            <div class="col-2 border p-3">
+                <h5>Sabado 07</h5>
+                <i class="fa-solid fa-cloud-rain"></i>
+                <p>Tormenta electrica</p>
+                <p>22° | 29°</p>
+                <hr>
+                <i class="fa-solid fa-wind"></i>
+                <p>10 - 27 km/h</p>
+            </div>
+        </section>
+
+        <!--Detalles del clima-->
+        <section class="row mt-5">
+           <div class="col-6">
+                <h5>Pronostico proxima semana</h5>
+                <p>Pronostico del Tiempo (8-14 de septiembre)</p>
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Max</th>
+                            <th>Min</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>8 de Septiembre</td>
+                            <td>28</td>
+                            <td>18</td>
+                            <td>Parcialmente nublado</td>
+                        </tr>
+
+                         <tr>
+                            <td>9 de Septiembre</td>
+                            <td>30</td>
+                            <td>20</td>
+                            <td>Despejado</td>
+                        </tr>
+
+                         <tr>
+                            <td>10 de Septiembre</td>
+                            <td>25</td>
+                            <td>16</td>
+                            <td>Posibles lluvias</td>
+                        </tr>
+
+                         <tr>
+                            <td>11 de Septiembre</td>
+                            <td>28</td>
+                            <td>18</td>
+                            <td>Mayormente nublado</td>
+                        </tr>
+
+                         <tr>
+                            <td>12 de Septiembre</td>
+                            <td>26</td>
+                            <td>18</td>
+                            <td>Parcialmente nublado</td>
+                        </tr>
+
+                         <tr>
+                            <td>13 de Septiembre</td>
+                            <td>29</td>
+                            <td>19</td>
+                            <td>Despejado</td>
+                        </tr>
+
+                         <tr>
+                            <td>14 de Septiembre</td>
+                            <td>28</td>
+                            <td>18</td>
+                            <td>Posibles lluvias</td>
+                        </tr>
+                    </tbody>
+                </table>
+           </div>
+           <div class="col-6">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Salida y puesta del sol</h5>
+                                <p>lunes 02 de septiembre</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="card text-center">
+                                        <div class="card-header">
+                                            <p>Salida</p>
+                                        </div>
+                                        <div class="card-body">
+                                            <h1><i class="fa-solid fa-sun"></i></h1>
+                                            <h1>7:00 am</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="card text-center">
+                                        <div class="card-header">
+                                            <p>Puesta</p>
+                                        </div>
+                                        <div class="card-body">
+                                            <h1><i class="fa-solid fa-moon"></i></h1>
+                                            <h1>6:10 pm</h1>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card m-0 p-3">
+                        <div class="card-header">
+                            <h5>Informacion UV</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>La radiacion ultravioleta(UV) es una forma de radiacion no ionizante* que es
+                                emitida por el sol y fuentes artificiales, como las camas bronceadoras. Aunque
+                                ofrece algunos beneficios a las persona, como la produccion de vitamina D,
+                                tambien puede causar riesgos para la salud.
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <p>Inforcion solo de caracter informativo</p>
+                        </div>
+                    </div>
+                </div>
+           </div>
+        </section>
+
+        <div class="alert alert-info mt-2">
+            Elaborado por: <b>Augusto Galindo</b>
+        </div>
+    </main>
+</body>
+</html>

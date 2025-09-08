@@ -1,0 +1,197 @@
+body {
+    font-family: "Oswald", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.content {
+    background-color: #fff;
+    margin: 10px;
+    width: 90%;
+    padding: 20px;
+    box-shadow: 0 4px 10px silver;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #7f5a1a;
+    padding: 10px 0px 10px 15px;
+    border-radius: 10px 10px 0 0;
+    color: #fff;
+}
+
+header h1 {
+    text-shadow: 1px 1px 2px #000;
+}
+
+nav {
+    background-color: black;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li a {
+    display: block;
+    padding: 15px 0;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+nav ul li {
+    flex: 1;
+    text-align: center;
+}
+
+nav ul li a:hover {
+    background-color: #d2b48c;
+    color: black;
+}
+
+.carrusel {
+    width: 100%;
+    height: 30rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.img-productos {
+    display: flex;
+    width: max-content;
+    animation: scroll 30s linear infinite;
+}
+
+.img-productos img {
+    width: 50rem;
+    height: 30rem;
+    object-fit: cover;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-250rem);
+    }
+}
+
+#menu, #promos, #nosotros, #barista, #contacto {
+    width: 90%;
+    margin: 2rem;
+    padding: 1.5rem 2rem;
+    background-color: #fffff9;
+    border-radius: 12px;
+    color: #4b3b2b;
+}
+
+
+.promos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto; /* centrar todo */
+}
+
+.promo {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s;
+}
+
+.promo:hover {
+    transform: translateY(-5px); 
+}
+
+.promo h3 {
+    margin: 10px 0;
+}
+.promo p {
+    margin: 5px 0 15px;
+}
+
+.promo img {
+    width: 100%;
+    height: 220px;     
+    object-fit: cover; 
+    border-radius: 12px;
+}
+
+/* Contenedor estilo tarjeta */
+.barista-card {
+    max-width: 500px;
+    margin: 30px auto;
+    background: #fff;                  /* fondo blanco */
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* sombra */
+    text-align: center;
+    padding: 20px;
+}
+
+/* Texto dentro de la tarjeta */
+.barista-card h3 {
+    margin: 10px 0;
+}
+.barista-card p {
+    margin: 5px 0 15px;
+}
+
+/* Imagen del barista */
+#barista {
+    width: 100%;
+    height: 300px;        /* altura uniforme */
+    object-fit: contain;  /* mantiene proporción sin recorte */
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
+    background: #f8f8f8;  /* fondo neutro si sobra espacio */
+}
+
+
+#menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#menu ul li {
+    margin-bottom: 1.6rem;
+    border-left: 4px solid #bd956d;
+    padding-left: 1rem;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#menu ul li:hover {
+    background-color: #f3e9d2;
+}
+
+#menu ul li strong {
+    font-size: 1.15rem;
+    color: #7f5a1a;
+}
+
+#menu ul li small {
+    display: block;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #8b7d65;
+    margin-top: 0.2rem;
+}

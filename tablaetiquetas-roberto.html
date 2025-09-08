@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es" translate="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Etiquetas Utilizadas — CV y Portafolio Minimalista</title>
+  <style>
+    :root{
+      --bg:#ffffff;
+      --surface:#fbfbfc;
+      --card:#ffffff;
+      --text:#0f172a;      /* slate-900 */
+      --muted:#6b7280;     /* gray-500 */
+      --line:#e5e7eb;      /* gray-200 */
+      --accent:#111827;    /* neutral-900 */
+      --accent-soft:#f3f4f6;
+      --shadow: 0 8px 24px rgba(0,0,0,.06);
+      --radius: 14px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      background:var(--surface);
+      font:16px/1.65 system-ui,-apple-system,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+    }
+
+    /* Topbar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      background:var(--card);
+      border-bottom:1px solid var(--line);
+      box-shadow: 0 6px 16px rgba(0,0,0,.03);
+    }
+    .topbar-inner{
+      max-width:1100px; margin:0 auto; padding:12px 20px;
+      display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+    }
+    .brand{font-weight:700; letter-spacing:.2px}
+    .brand small{display:block; color:var(--muted); font-weight:500}
+    nav{margin-left:auto; overflow:auto}
+    .menu{display:flex; gap:12px; padding:0; margin:0; list-style:none}
+    .menu a{
+      display:inline-block; padding:8px 12px; border:1px solid var(--line);
+      border-radius:999px; text-decoration:none; color:var(--text);
+      background:#fff;
+    }
+    .menu a:hover{background:var(--accent-soft)}
+    .container{max-width:1100px; margin:0 auto; padding:24px 20px}
+
+    /* Headings & text */
+    h1{margin:12px 0; color:var(--accent); font-size:1.7rem}
+    h2{margin:0 0 6px; font-size:1.15rem; text-transform:uppercase; letter-spacing:.12em; color:var(--accent)}
+    h3{margin:8px 0; color:#374151}
+    p{margin:8px 0 14px}
+    .lead{color:#374151}
+
+    /* Cards & layout */
+    .grid{
+      display:grid; gap:22px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 900px){
+      .grid{grid-template-columns: 1fr 1fr;}
+    }
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+    }
+
+    /* Lists, badges, code */
+    ol, ul{margin:8px 0 12px 22px}
+    a{color:inherit}
+    .badges{display:flex; flex-wrap:wrap; gap:8px}
+    .badge{
+      border:1px solid var(--line);
+      padding:6px 10px; border-radius:999px; background:#fff; font-size:.92rem;
+    }
+    pre{
+      margin:10px 0; background:#f6f7f9; border:1px solid var(--line);
+      border-radius:12px; padding:12px; overflow:auto;
+    }
+    code{background:#f3f4f6; padding:2px 6px; border-radius:6px}
+    .example{margin-top:10px}
+
+    /* Section anchor offset (so titles don't hide under the topbar) */
+    section[id]{scroll-margin-top:84px}
+
+    /* Footer */
+    footer{
+      margin-top:28px; color:var(--muted); font-size:.95rem; text-align:center;
+      padding:18px 0 36px;
+    }
+
+    /* Small helper blocks */
+    .note{font-size:.95rem; color:var(--muted)}
+    .hr{height:1px; background:var(--line); margin:18px 0}
+  </style>
+</head>
+<body>
+
+  <!-- Top navigation -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        Etiquetas — CV & Portafolio
+        <small>Guía rápida de lo que usamos en tu diseño</small>
+      </div>
+      <nav>
+        <ul class="menu">
+          <li><a href="#estructura">Estructura</a></li>
+          <li><a href="#semantica">Semántica</a></li>
+          <li><a href="#texto">Texto</a></li>
+          <li><a href="#listas">Listas</a></li>
+          <li><a href="#enlaces">Enlaces</a></li>
+          <li><a href="#imagenes">Imágenes</a></li>
+          <li><a href="#clases">Atributos</a></li>
+          <li><a href="#css">CSS</a></li>
+          <li><a href="#grid">Grid</a></li>
+          <li><a href="#badges">Badges</a></li>
+          <li><a href="#accesibilidad">Accesibilidad</a></li>
+          <li><a href="#plantilla">Plantilla</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <main class="container">
+    <h1 id="inicio">Etiquetas utilizadas en mi CV y Portafolio (versión minimalista)</h1>
+    <p class="lead">Esta página resume las etiquetas HTML y las ideas de CSS que aplicamos en tu currículum y portafolio minimalistas. Incluye ejemplos, bloques de código y una plantilla lista para copiar.</p>
+
+    <div class="hr"></div>
+
+    <section id="estructura" class="card">
+      <h2>Estructura básica del documento</h2>
+      <p>Define el esqueleto del HTML para idioma, codificación y título.</p>
+      <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Mi CV / Portafolio&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- Contenido visible --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </section>
+
+    <section id="semantica" class="card">
+      <h2>Etiquetas semánticas (layout)</h2>
+      <p>Organizan el contenido y mejoran SEO/accesibilidad.</p>
+      <ul>
+        <li><strong>&lt;header&gt;</strong> Encabezado (nombre, título, contactos).</li>
+        <li><strong>&lt;main&gt;</strong> Contenido principal (perfil, proyectos).</li>
+        <li><strong>&lt;aside&gt;</strong> Información lateral (habilidades, idiomas).</li>
+        <li><strong>&lt;section&gt;</strong> Bloques temáticos dentro de main/aside.</li>
+        <li><strong>&lt;footer&gt;</strong> Pie de página.</li>
+      </ul>
+      <div class="example">
+        <pre><code>&lt;header&gt;Encabezado con nombre y datos&lt;/header&gt;
+&lt;main&gt;Perfil, educación, proyectos&lt;/main&gt;
+&lt;aside&gt;Habilidades e idiomas&lt;/aside&gt;
+&lt;footer&gt;© Roberto&lt;/footer&gt;</code></pre>
+      </div>
+    </section>
+
+    <section id="texto" class="card">
+      <h2>Texto y jerarquía (h1–h6, p, strong, em, span)</h2>
+      <p>Los encabezados establecen jerarquía; los párrafos y estilos dan claridad.</p>
+      <ul>
+        <li><strong>&lt;h1&gt;…&lt;h6&gt;</strong> Títulos de mayor a menor importancia.</li>
+        <li><strong>&lt;p&gt;</strong> Párrafo.</li>
+        <li><strong>&lt;strong&gt;</strong> Énfasis importante (lectores lo resaltan).</li>
+        <li><strong>&lt;em&gt;</strong> Énfasis leve.</li>
+        <li><strong>&lt;span&gt;</strong> Contenedor en línea (útil para chips/badges).</li>
+      </ul>
+      <div class="example">
+        <p><strong>Ejemplos rápidos:</strong></p>
+        <pre><code>&lt;h1&gt;Roberto A. Álvarez Sandoval&lt;/h1&gt;
+&lt;h3&gt;Estudiante de Tecnologías de la Información&lt;/h3&gt;
+&lt;p&gt;Perfil profesional…&lt;/p&gt;
+&lt;p&gt;Habilidades: &lt;strong&gt;Python&lt;/strong&gt;, &lt;em&gt;aprendizaje continuo&lt;/em&gt;&lt;/p&gt;</code></pre>
+      </div>
+    </section>
+
+    <section id="listas" class="card">
+      <h2>Listas (ul, ol, li)</h2>
+      <p>Resumir habilidades, logros o puntos clave.</p>
+      <pre><code>&lt;ul&gt;
+  &lt;li&gt;Python&lt;/li&gt;
+  &lt;li&gt;SQL&lt;/li&gt;
+  &lt;li&gt;Análisis de datos&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+    </section>
+
+    <section id="enlaces" class="card">
+      <h2>Enlaces (a, mailto, tel)</h2>
+      <p>Para correo, teléfono o sitios externos (GitHub, LinkedIn).</p>
+      <pre><code>&lt;a href="mailto:8118470080r@gmail.com"&gt;Enviar correo&lt;/a&gt;
+&lt;a href="tel:8127004070"&gt;Llamar&lt;/a&gt;</code></pre>
+    </section>
+
+    <section id="imagenes" class="card">
+      <h2>Imágenes (img, alt, tamaños)</h2>
+      <p>Foto con accesibilidad y control visual (recorte circular con CSS).</p>
+      <pre><code>&lt;img src="foto.jpg" alt="Foto de Roberto Angel Álvarez Sandoval" width="160"&gt;</code></pre>
+      <p class="note">Usamos <code>object-fit: cover;</code> y <code>border-radius: 50%;</code> para el estilo circular.</p>
+    </section>
+
+    <section id="clases" class="card">
+      <h2>Clases y atributos comunes (class, id, lang, charset)</h2>
+      <p>Para identificar/estilizar elementos con CSS y definir idioma/codificación.</p>
+      <ul>
+        <li><strong>class</strong>: estilos reutilizables (.photo, .badge).</li>
+        <li><strong>id</strong>: identificador único (anclas del menú).</li>
+        <li><strong>lang</strong>: idioma del documento (<code>lang="es"</code>).</li>
+        <li><strong>charset</strong>: codificación (<code>UTF-8</code>).</li>
+      </ul>
+      <pre><code>&lt;h1 id="perfil"&gt;Perfil&lt;/h1&gt;
+&lt;span class="badge"&gt;Python&lt;/span&gt;</code></pre>
+    </section>
+
+    <section id="css" class="card">
+      <h2>CSS clave del diseño minimalista</h2>
+      <p>Variables, tipografía, colores, bordes y espaciado.</p>
+      <pre><code>:root {
+  --bg:#ffffff; --fg:#0f172a; --muted:#6b7280; --line:#e5e7eb;
+}
+body { background:var(--bg); color:var(--fg); font:16px/1.65 system-ui,Arial,sans-serif; }
+.badge { border:1px solid var(--line); border-radius:999px; padding:6px 10px; }
+.photo img { width:100%; height:100%; object-fit:cover; border-radius:50%; }</code></pre>
+      <p class="note">Apostamos por alto contraste, tipografía legible y “aire” entre bloques.</p>
+    </section>
+
+    <section id="grid" class="card">
+      <h2>Grid y diseño responsivo (@media)</h2>
+      <p>Para que se vea bien en escritorio y móvil.</p>
+      <pre><code>.wrapper {
+  display:grid;
+  grid-template-columns:320px 1fr;
+}
+@media (max-width: 860px) {
+  .wrapper { grid-template-columns:1fr; }
+}</code></pre>
+    </section>
+
+    <section id="badges" class="card">
+      <h2>Badges de habilidades e idiomas (span + class)</h2>
+      <p>Chips limpios para listar habilidades e idiomas.</p>
+      <div class="badges example">
+        <span class="badge">Python</span>
+        <span class="badge">SQL</span>
+        <span class="badge">Análisis de datos</span>
+        <span class="badge">Español (nativo)</span>
+        <span class="badge">Inglés (básico)</span>
+      </div>
+    </section>
+
+    <section id="accesibilidad" class="card">
+      <h2>Accesibilidad básica (alt, aria-label)</h2>
+      <p>Buenas prácticas aplicadas:</p>
+      <ul>
+        <li><strong>alt</strong> descriptivo en imágenes.</li>
+        <li>Contraste suficiente de color.</li>
+        <li>Jerarquía correcta de encabezados.</li>
+        <li><strong>aria-label</strong> cuando el texto visible no sea claro (opcional).</li>
+      </ul>
+      <pre><code>&lt;a href="mailto:..." aria-label="Enviar correo a Roberto"&gt;Correo&lt;/a&gt;</code></pre>
+    </section>
+
+    <section id="plantilla" class="card">
+      <h2>Plantilla base reutilizable</h2>
+      <p>Copia/pega para empezar un nuevo bloque.</p>
+      <pre><code>&lt;section class="card"&gt;
+  &lt;h2&gt;Título de sección&lt;/h2&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Punto clave 1&lt;/li&gt;
+    &lt;li&gt;Punto clave 2&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/section&gt;</code></pre>
+    </section>
+
+    <footer>
+      © Roberto Angel Álvarez Sandoval — Guía de etiquetas (CV/Portafolio)
+      <div><a href="#inicio">Volver al inicio</a></div>
+    </footer>
+  </main>
+</body>
+</html>

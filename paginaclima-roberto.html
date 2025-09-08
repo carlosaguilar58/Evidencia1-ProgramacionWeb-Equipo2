@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Clima Monterrey, Nuevo León</title>
+<style>
+  :root{
+    --bg:#0b1220; --panel:#0f172a; --line:#1f2937;
+    --text:#e5e7eb; --muted:#9aa3b2; --brand:#22d3ee; --ok:#34d399; --warn:#f59e0b;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;background:linear-gradient(120deg,#0b1220,#0f172a);color:var(--text)}
+  .wrap{max-width:1100px;margin:0 auto;padding:20px}
+  header{
+    display:flex;gap:12px;align-items:center;justify-content:space-between;
+    background:rgba(15,23,42,.7);border:1px solid var(--line);border-radius:16px;padding:14px 16px
+  }
+  .city{display:flex;align-items:center;gap:10px}
+  .city h1{margin:0;font-size:clamp(18px,3.5vw,26px)}
+  .pill{border:1px solid var(--line);padding:8px 12px;border-radius:999px;background:#121a2b;color:var(--text);cursor:pointer}
+  .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;margin-top:18px}
+  .card{background:rgba(15,23,42,.65);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .muted{color:var(--muted)}
+  .main{
+    display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center
+  }
+  .temp{font-size:clamp(40px,8vw,64px);margin:0}
+  .cond{margin:4px 0 8px 0}
+  .kpis{display:flex;gap:10px;flex-wrap:wrap}
+  .kpi{border:1px solid var(--line);padding:8px 10px;border-radius:12px;font-size:14px}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .tab{cursor:pointer;border:1px solid var(--line);padding:6px 10px;border-radius:10px;background:#121a2b}
+  .tab.active{outline:2px solid var(--brand)}
+  .hours{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:10px}
+  .hour{border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
+  .days{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:10px}
+  .day{border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
+  footer{margin-top:16px;text-align:center;color:var(--muted)}
+  /* icon */
+  .sky{width:100px;height:100px;border-radius:16px;background:linear-gradient(180deg,#1f3b6a,#10223d);display:grid;place-items:center;border:1px solid #1c2a44}
+  .sun{width:34px;height:34px;border-radius:50%;background:#fbbf24;box-shadow:0 0 20px rgba(251,191,36,.8)}
+  .cloud{width:60px;height:26px;border-radius:20px;background:#cbd5e1;position:relative}
+  .cloud::after{content:"";position:absolute;left:8px;top:-12px;width:34px;height:34px;border-radius:50%;background:#e2e8f0}
+  @media (max-width:900px){.grid{grid-template-columns:1fr}.hours{grid-template-columns:repeat(3,1fr)}.days{grid-template-columns:repeat(3,1fr)}.main{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="city">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 2l2.39 4.84L20 8.27l-4 3.9.94 5.49L12 15.77 7.06 17.66 8 12.17l-4-3.9 5.61-1.43L12 2z" stroke="#22d3ee" stroke-width="1.2" fill="none"/>
+        </svg>
+        <h1>Clima — Monterrey, Nuevo León</h1>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <button id="toggleUnits" class="pill" title="Cambiar °C/°F">°C</button>
+        <span class="muted" id="now"></span>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- Panel principal -->
+      <section class="card">
+        <div class="main">
+          <div class="sky" id="skyIcon" aria-hidden="true">
+            <!-- se dibuja con JS según el estado -->
+          </div>
+          <div>
+            <h2 style="margin:0 0 6px 0">Hoy</h2>
+            <p class="temp" id="tempNow">--</p>
+            <p class="cond" id="condNow" aria-live="polite">Cargando…</p>
+            <div class="kpis">
+              <div class="kpi">Sensación: <strong id="feels">--</strong></div>
+              <div class="kpi">Viento: <strong id="wind">--</strong></div>
+              <div class="kpi">Humedad: <strong id="hum">--</strong></div>
+              <div class="kpi">UV: <strong id="uv">--</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Seleccionar vista">
+          <button class="tab active" role="tab" aria-selected="true" id="tab-hoy">Hoy</button>
+          <button class="tab" role="tab" aria-selected="false" id="tab-manana">Mañana</button>
+          <button class="tab" role="tab" aria-selected="false" id="tab-7">7 días</button>
+        </div>
+
+        <div id="view-hoy">
+          <div class="hours" id="hours"></div>
+        </div>
+        <div id="view-manana" hidden>
+          <div class="hours" id="hoursTomorrow"></div>
+        </div>
+        <div id="view-7" hidden>
+          <div class="days" id="days"></div>
+        </div>
+      </section>
+
+      <!-- Panel detalles -->
+      <aside class="card">
+        <h3 style="margin:0 0 8px 0">Detalles de hoy</h3>
+        <p class="muted" id="summary">—</p>
+        <hr style="border:0;border-top:1px solid var(--line);margin:12px 0" />
+        <div class="kpis">
+          <div class="kpi">Mín: <strong id="min">--</strong></div>
+          <div class="kpi">Máx: <strong id="max">--</strong></div>
+          <div class="kpi">Prob. lluvia: <strong id="rain">--</strong></div>
+          <div class="kpi">Visibilidad: <strong id="vis">--</strong></div>
+        </div>
+        <p class="muted" style="margin-top:10px;font-size:13px">* Datos de muestra listos para usar sin internet. Puedes conectar una API después si lo necesitas.</p>
+      </aside>
+    </div>
+
+    <footer>by Roberto Álvarez</footer>
+  </div>
+
+<script>
+/* ====== Datos de muestra (Monterrey) ======
+   Puedes editar fácilmente estos valores o conectar una API real. */
+const sample = {
+  units: "C", // "C" o "F"
+  today: {
+    temp: 33, feels: 36, cond: "Soleado con nubes dispersas",
+    wind_kmh: 14, hum: 45, uv: 8, min: 24, max: 35, rain: 10, vis_km: 10,
+    hours: [ {t:"08:00", temp:26, cond:"Soleado"},
+             {t:"11:00", temp:30, cond:"Parcialmente nublado"},
+             {t:"14:00", temp:33, cond:"Caluroso"},
+             {t:"17:00", temp:34, cond:"Soleado"},
+             {t:"20:00", temp:31, cond:"Despejado"},
+             {t:"23:00", temp:28, cond:"Despejado"} ]
+  },
+  tomorrow: {
+    hours: [ {t:"08:00", temp:25, cond:"Soleado"},
+             {t:"11:00", temp:29, cond:"Parcialmente nublado"},
+             {t:"14:00", temp:32, cond:"Caluroso"},
+             {t:"17:00", temp:33, cond:"Caluroso"},
+             {t:"20:00", temp:30, cond:"Despejado"},
+             {t:"23:00", temp:27, cond:"Despejado"} ]
+  },
+  next7: [
+    {d:"Lun", min:24, max:35, cond:"Soleado"},
+    {d:"Mar", min:23, max:34, cond:"Parcial nublado"},
+    {d:"Mié", min:24, max:36, cond:"Caluroso"},
+    {d:"Jue", min:25, max:37, cond:"Caluroso"},
+    {d:"Vie", min:24, max:35, cond:"Soleado"},
+    {d:"Sáb", min:23, max:33, cond:"Parcial nublado"},
+    {d:"Dom", min:22, max:32, cond:"Posible lluvia"}
+  ]
+};
+
+// utilidades
+const cToF = c => Math.round(c * 9/5 + 32);
+const kmhToMph = k => Math.round(k * 0.621371);
+function fmtTemp(v){return sample.units==="C" ? `${v} °C` : `${cToF(v)} °F`; }
+function fmtWind(k){return sample.units==="C" ? `${k} km/h` : `${kmhToMph(k)} mph`; }
+
+function drawSky(cond){
+  const box = document.getElementById("skyIcon");
+  box.innerHTML = "";
+  if(/lluvia|tormenta/i.test(cond)){
+    // nube + gota
+    const c = document.createElement("div"); c.className="cloud"; c.style.transform="translateY(6px)";
+    const drop = document.createElement("div");
+    drop.style.width="8px"; drop.style.height="16px"; drop.style.background="#60a5fa"; drop.style.borderRadius="6px";
+    drop.style.transform="rotate(20deg)"; drop.style.marginTop="6px";
+    const wrap = document.createElement("div"); wrap.style.display="grid"; wrap.style.placeItems="center";
+    wrap.appendChild(c); wrap.appendChild(drop); box.appendChild(wrap);
+  } else if(/nublado|nubes|parcial/i.test(cond)){
+    const c = document.createElement("div"); c.className="cloud";
+    const sun = document.createElement("div"); sun.className="sun"; sun.style.position="absolute"; sun.style.left="10px"; sun.style.top="8px"; sun.style.filter="brightness(0.9)";
+    const wrap = document.createElement("div"); wrap.style.position="relative"; wrap.style.width="70px"; wrap.style.height="60px";
+    wrap.appendChild(sun); wrap.appendChild(c); box.appendChild(wrap);
+  } else {
+    const sun = document.createElement("div"); sun.className="sun"; box.appendChild(sun);
+  }
+}
+
+function renderToday(){
+  document.getElementById("tempNow").textContent = fmtTemp(sample.today.temp);
+  document.getElementById("condNow").textContent = sample.today.cond;
+  document.getElementById("feels").textContent = fmtTemp(sample.today.feels);
+  document.getElementById("wind").textContent = fmtWind(sample.today.wind_kmh);
+  document.getElementById("hum").textContent = sample.today.hum + " %";
+  document.getElementById("uv").textContent = sample.today.uv;
+  document.getElementById("min").textContent = fmtTemp(sample.today.min);
+  document.getElementById("max").textContent = fmtTemp(sample.today.max);
+  document.getElementById("rain").textContent = sample.today.rain + " %";
+  document.getElementById("vis").textContent = (sample.units==="C"? sample.today.vis_km+" km" : Math.round(sample.today.vis_km*0.621371)+" mi");
+  document.getElementById("summary").textContent = "Caluroso típico de Monterrey. Tarde soleada con nubes dispersas; UV alto por la tarde.";
+  drawSky(sample.today.cond);
+
+  const hours = document.getElementById("hours");
+  hours.innerHTML = "";
+  sample.today.hours.forEach(h=>{
+    const d = document.createElement("div"); d.className="hour";
+    d.innerHTML = `<div class="muted">${h.t}</div><div style="font-weight:700">${fmtTemp(h.temp)}</div><div class="muted" style="font-size:12px">${h.cond}</div>`;
+    hours.appendChild(d);
+  });
+}
+
+function renderTomorrow(){
+  const hours = document.getElementById("hoursTomorrow");
+  hours.innerHTML = "";
+  sample.tomorrow.hours.forEach(h=>{
+    const d = document.createElement("div"); d.className="hour";
+    d.innerHTML = `<div class="muted">${h.t}</div><div style="font-weight:700">${fmtTemp(h.temp)}</div><div class="muted" style="font-size:12px">${h.cond}</div>`;
+    hours.appendChild(d);
+  });
+}
+
+function render7(){
+  const days = document.getElementById("days");
+  days.innerHTML = "";
+  sample.next7.forEach(x=>{
+    const d = document.createElement("div"); d.className="day";
+    d.innerHTML = `<div style="font-weight:700">${x.d}</div>
+                   <div class="muted" style="font-size:12px">${x.cond}</div>
+                   <div style="margin-top:6px">Min ${fmtTemp(x.min)} · Max ${fmtTemp(x.max)}</div>`;
+    days.appendChild(d);
+  });
+}
+
+function setTab(which){
+  const ids = ["hoy","manana","7"];
+  ids.forEach(id=>{
+    document.getElementById(`tab-${id}`).classList.toggle("active", id===which);
+    document.getElementById(`view-${id==="7"?"7":id}`).hidden = (id!==which);
+  });
+}
+
+function refreshAll(){
+  renderToday(); renderTomorrow(); render7();
+}
+
+document.getElementById("toggleUnits").addEventListener("click", ()=>{
+  sample.units = sample.units==="C" ? "F" : "C";
+  document.getElementById("toggleUnits").textContent = "°" + sample.units;
+  refreshAll();
+});
+
+document.getElementById("tab-hoy").onclick = ()=> setTab("hoy");
+document.getElementById("tab-manana").onclick = ()=> setTab("manana");
+document.getElementById("tab-7").onclick = ()=> setTab("7");
+
+function tickNow(){
+  const now = new Date();
+  const fmt = now.toLocaleString("es-MX",{dateStyle:"medium", timeStyle:"short"});
+  document.getElementById("now").textContent = fmt;
+}
+setInterval(tickNow,1000); tickNow();
+
+refreshAll();
+</script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+body {
+    font-family: "Inter", sans-serif; /*Aqui se pone el link para el css del tipo de fuente*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #F0F0F0;
+}
+
+.content {
+    background-color: #FFF;
+    margin: 10px;
+    width: 90%;
+    padding: 20px;
+    box-shadow: 0 4px 10 px silver;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #7f5a1a;
+    padding: 10px 0px 10px 15px;
+    border-radius: 10px 10px 0 0;
+    color: #FFF;
+}
+
+header h1 {
+    text-shadow: 1px 1px 2px #000;
+}
+
+nav {
+    background-color: #000;
+}
+
+nav ul {
+    list-style: none; /*Quitar los puntitos de las opciones*/
+    margin: 0;
+    padding: 0;
+    display: flex; /*´Hacer el contenido flexible*/
+    justify-content: space-around; /*Hacer que las opciones del menu sean horizontales*/
+}
+
+nav ul li a /*Esto es herencia en css*/ {
+    display: block; /*Hacer secciones por cajas*/
+    padding: 15px 0;
+    color: #FFF;
+    text-decoration: none;
+    font-weight: bold; /*Hacer las letras en negritas*/
+    transition: background-color 0.3s ease;
+}
+
+nav ul li {
+    flex:1; /*Esto hace que abarque todo el espacio de la opcion*/
+    text-align: center;
+}
+
+nav ul li a:hover {
+    background-color: #d2b48c;
+    color: #000;
+}
+
+.carrusel {
+    width: 100%;
+    height: 30rem;
+    overflow: hidden; /*Si la imgaen se sobresale esto lo que hace es que no sea vea que se sobresale, si no que lo oculta*/
+    position: relative; /*Posicion relativa segun la caja, osea se pone dentro de la caja*/
+}
+
+.img-productos {
+    display: flex;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+}
+
+.img-productos img {
+    width: 50rem;
+    height: 30rem;
+    object-fit: cover;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-250rem);
+    }
+}
+
+#menu { 
+    width: 90%;
+    margin: 2rem;
+    padding: 1.5renm 2rem;
+    background-color: #ffffF9;
+    border-radius: 12px;
+    color: #4b3b2b;
+}
+
+#menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#menu ul li {
+    margin-bottom: 1.6rem;
+    border-left: 4px solid #bd956d;
+    padding-left: 1rem;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#menu ul li:hover {
+    background-color: #f3e9d2;
+}
+
+#menu ul li strong {
+    font-size: 1.15rem;
+    color: #7f5a1a;
+}
+
+#menu ul li small {
+    display: block;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #8b7d65;
+    margin-top: 0.2rem;
+}
+
+#productos { 
+    width: 90%;
+    margin: 2rem;
+    padding: 1.5renm 2rem;
+    background-color: #ffffF9;
+    border-radius: 12px;
+    color: #4b3b2b;
+}
+
+
+#promociones {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* dos columnas */
+  gap: 1.5rem;
+  justify-items: center; /* centra horizontalmente cada celda */
+}
+
+#promociones h1 {
+  grid-column: 1 / -1; /* el título ocupa las dos columnas */
+  text-align: center;
+}
+
+#promociones img {
+  width: 20rem;
+  height: auto;
+  border-radius: 8px;
+}
+
+#promociones h4 {
+  text-align: center;
+  max-width: 20rem;
+}
+
+
+#nosotros {
+    background-color: #d2b48c;
+    width: 90%;
+    margin: 2rem;
+    padding: 8px;
+    border-radius: 20px;
+}
+
+.recomendacion {
+    background-color: #8b7d65;
+    width: 70%;
+    margin: 1rem;
+    padding: 4px;
+    border-radius: 20px;
+}
+
+#contacto {
+    background-color: 
+    rgb(150, 148, 148);
+    width: 90%;
+    margin: 2rem;
+    padding: 2px;
+    border-radius: 20px;
+    text-align: center;
+}

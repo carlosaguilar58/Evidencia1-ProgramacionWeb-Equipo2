@@ -1,0 +1,99 @@
+/* Estilos generales */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #e0f7fa, #f1f8e9);
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal */
+.container {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    margin-bottom: 40px;
+}
+
+/* Tarjetas */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Encabezados de tarjeta */
+.card-header {
+    background: linear-gradient(90deg, #4caf50, #81c784);
+    color: white;
+    text-align: center;
+    border-radius: 12px 12px 0 0;
+    padding: 15px;
+}
+
+.card-header h1 {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
+/* Cuerpo de tarjeta */
+.card-body h1 {
+    font-size: 1.3rem;
+    margin-top: 20px;
+    color: #2e7d32;
+}
+
+.card-body h3 {
+    color: #555;
+    font-weight: normal;
+}
+
+/* Imágenes */
+.card-body img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin: 15px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Enlaces */
+a {
+    color: #388e3c;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    color: #1b5e20;
+    text-decoration: underline;
+}
+
+/* Separadores */
+hr {
+    border: none;
+    height: 1px;
+    background: #ddd;
+    margin: 20px 0;
+}
+
+/* Sección "Nosotros" */
+.card-body h1:first-child {
+    margin-top: 0;
+}
+
+
+
+.img-integrante {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px; /* Opcional: bordes redondeados */
+}
